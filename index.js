@@ -101,7 +101,7 @@ function transformConfig(code, framework, args) {
     return consola.error(reason)
   }
   if (keysNotFound.length) {
-    handleKeysNotFound()
+    handleKeysNotFound(keysNotFound);
   }
   return transform(code, transforms)
 }
