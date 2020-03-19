@@ -35,11 +35,17 @@ const nuxt = {
       action: 'create:merge',
       value
     }]
+  },
+  libraries(value) {
+    return ['build:transpile', {
+      action: 'create:merge',
+      value
+    }]
   }
 }
 const table = { nuxt }
 
-function createTransformArgs(framework, args) {
+function createTransformArgs(framework, args, strict) {
   const frameworkTable = table[framework]
   const keysNotFound = []
   if (!frameworkTable) {
@@ -55,13 +61,16 @@ function createTransformArgs(framework, args) {
         }
       }
       keysNotFound.push(k)
-      return {
-        ...acc,
-        [k]: {
-          action: 'create:merge',
-          value: v
+      if (!strict) {
+        return {
+          ...acc,
+          [k]: {
+            action: "create:merge",
+            value: v
+          }
         }
       }
+      return acc
     }, {})
     return {
       transforms,
@@ -90,17 +99,17 @@ function handleKeysNotFound(keys) {
     consola.warn(`[transform-args] Key "${key}" not recognized.\nDefaulting to default transform`)
   })
 }
-function transformConfig(code, framework, args) {
+function transformConfig(code, framework, args, strict = true) {
   const {
     transforms,
     keysNotFound,
     reason,
-  } = createTransformArgs(framework, args)
+  } = createTransformArgs(framework, args, strict)
 
   if (!transforms) {
     return consola.error(reason)
   }
-  if (keysNotFound.length) {
+  if (!strict && keysNotFound.length) {
     handleKeysNotFound(keysNotFound);
   }
   return transform(code, transforms)
