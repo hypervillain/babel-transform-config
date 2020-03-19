@@ -21,7 +21,7 @@ const nuxt = {
   module(value) {
     return ['modules', {
       action: 'create:merge',
-      [value]: [value]
+      value: [value]
     }]
   },
   modules(value) {
