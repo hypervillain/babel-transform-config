@@ -1,0 +1,30 @@
+{
+  "name": "babel-transform-config",
+  "version": "0.0.1",
+  "description": "Transform JS config files (Next, Nuxt, Gatsby)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Babel",
+    "Babylon",
+    "AST",
+    "Next",
+    "Nuxt",
+    "Gatsby"
+  ],
+  "author": "Hugo Villain",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-syntax-jsx": "^7.8.3",
+    "@babel/plugin-transform-arrow-functions": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/standalone": "^7.8.8",
+    "@babel/template": "^7.8.6",
+    "@babel/traverse": "^7.8.6",
+    "consola": "^2.11.3"
+  }
+}
