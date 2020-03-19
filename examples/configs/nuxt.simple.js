@@ -4,5 +4,5 @@ export default {
   modules: ['@org/my-nuxt-module'],
   build: {
     webpack : {}
-  },
+  }
 };
