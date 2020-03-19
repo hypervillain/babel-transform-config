@@ -3,6 +3,6 @@ export default {
   css: [],
   modules: ['@org/my-nuxt-module'],
   build: {
-    webpack : {}
+    extend(config, ctx) {}
   }
 };

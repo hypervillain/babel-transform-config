@@ -57,7 +57,7 @@ function createTransformArgs(framework, args) {
       keysNotFound.push(k)
       return {
         ...acc,
-        [key]: {
+        [k]: {
           action: 'create:merge',
           value: v
         }
