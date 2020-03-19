@@ -89,7 +89,7 @@ module.exports = function({ types: t }, transforms) {
       const currentPath = mergePaths(parentKeys, path.node.key.name)
       const transform = transforms[currentPath]
 
-      if (transform) {
+      if (transform && !status[currentPath]) {
         status[currentPath] = true
         const operations = transform.action.split(':')
         if (operations.includes('delete')) {
