@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const transformCode = require('../').transform
+const transformCode = require('..').transform
 
 const code = fs.readFileSync(path.join(process.cwd(), 'examples/configs/nuxt.trans.js'), 'utf8')
 
