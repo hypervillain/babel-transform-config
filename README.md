@@ -120,6 +120,6 @@ const { code: updatedCode } = transform(yourCustomCode, transforms)
 
 #### Quick note
 
-This package does not work well with nested elements, especially when object patterns are similar.
+ATM you'll need to use ES2015 `export default` feature to use this plugin.
 
 
